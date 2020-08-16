@@ -17,14 +17,18 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {      
       this.http.get(this.communityUrl).subscribe(data => {
-          this.communityData = data;
+          this.communityData = data;  
           this.http.get(this.homesUrl).subscribe(data => {
             this.homesData =data;
             this.processData(this.communityData, this.homesData);
-          })
-      })
+          }),
+          err => console.log(err),
+          () => console.log('Oops')
+      }),
+      err => console.log(err),
+      () => console.log('Oops')
       // Use the angular built in api http.get to get data from Rest backend.
-      // We can add a exception here for failed cases later, but currently it works pretty well.
+      // Any connection error should be displayed.
   }
 
   compare(a, b) {
