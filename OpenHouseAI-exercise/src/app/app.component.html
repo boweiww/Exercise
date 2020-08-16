@@ -1,0 +1,12 @@
+<div ngOnInit class = 'class1'>
+
+  <h1>collection of geographic communities:</h1>
+  <ul>
+    <li *ngFor="let image of images">
+      <h3>{{ image.title }}</h3>
+      <p2>Average price: {{ image.price }}$<br> </p2>
+          <img [src]="image.href" [title] = "image.title" style="width:750px;height:500px;" />
+          
+
+    </li>
+  </ul>
